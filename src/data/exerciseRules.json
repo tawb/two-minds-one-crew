@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "document": {
+    "name": "NASA OCHMO-TB-031 Exercise Overview",
+    "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+    "checked": "2026-11-14"
+  },
+  "note": "Every rule has a source with a short quote from the document, or source = null and needsReview = true. Nothing here is a prescription. A flight surgeon must review everything marked needsReview before real use.",
+  "rules": [
+    {
+      "id": "normal-week",
+      "label": "Normal week",
+      "text": "6-7 sessions a week: about 30 minutes of aerobic exercise (interval or steady) plus 30-60 minutes of resistance exercise.",
+      "values": { "sessionsPerWeek": [6, 7], "aerobicMinutesPerSession": 30, "resistanceMinutesPerSession": [30, 60] },
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "quote": "Metabolic: Approximately 30 minutes of interval or steady-state exercise. Resistive/Strength: 30-60 minutes load-bearing training. (ISS long duration: 6-7 days/week, 30 minutes/session)"
+      },
+      "needsReview": false
+    },
+    {
+      "id": "aerobic-intensity",
+      "label": "Aerobic intensity",
+      "text": "70-90% of maximum heart rate.",
+      "values": { "maxHrPctMin": 70, "maxHrPctMax": 90 },
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "quote": "Peak heart rate: 70-90% max HR"
+      },
+      "needsReview": false
+    },
+    {
+      "id": "max-hr-formula",
+      "label": "Maximum heart rate",
+      "text": "Estimated as 220 minus age. A simple estimate only.",
+      "values": { "base": 220, "perYear": 1 },
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "note": "The document says \"age-predicted maximum HR\" but does not give a formula. 220 - age is a common estimate that this project chose."
+      },
+      "needsReview": true
+    },
+    {
+      "id": "minimum-dose",
+      "label": "Minimum dose",
+      "text": "At least 3 sessions a week, each longer than 20 minutes, above 70% of maximum heart rate. Shown yellow if below.",
+      "values": { "sessionsPerWeek": 3, "minutesPerSessionMoreThan": 20, "maxHrPctMoreThan": 70 },
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "quote": "exercised three or more times per week during flight, at a HR >70% of their age-predicted maximum HR and for more than 20 minutes per session"
+      },
+      "needsReview": false
+    },
+    {
+      "id": "protect-aerobic",
+      "label": "Protect aerobic capacity",
+      "text": "Keep aerobic capacity at 80% of baseline or higher.",
+      "values": { "minPctOfBaseline": 80 },
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview (NASA-STD-3001 Vol. 1 [V1 4003])",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "quote": "The in-mission aerobic capacity shall be maintained ... at or above 80% of the pre-mission capacity"
+      },
+      "needsReview": false
+    },
+    {
+      "id": "protect-strength",
+      "label": "Protect muscle strength",
+      "text": "Keep muscle strength at 80% of baseline or higher.",
+      "values": { "minPctOfBaseline": 80 },
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview (NASA-STD-3001 Vol. 1 [V1 4024])",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "quote": "Countermeasures shall maintain in-mission skeletal muscle strength at or above 80% of baseline values."
+      },
+      "needsReview": false
+    },
+    {
+      "id": "protect-bone",
+      "label": "Protect bone",
+      "text": "Keep bone mineral density at 95% of baseline or higher (hip and spine). This device cannot measure it.",
+      "values": { "minPctOfBaseline": 95 },
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview (NASA-STD-3001 Vol. 1 [V1 4027])",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "quote": "maintain bone mineral density (BMD) of the hip and spine at or above 95% of pre-mission values and at or above 90% for the femoral neck"
+      },
+      "needsReview": false
+    },
+    {
+      "id": "high-risk-drop",
+      "label": "High-risk flag",
+      "text": "A drop of 20% or more in any tracked endpoint is a high-risk flag.",
+      "values": { "dropPct": 20 },
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "quote": "20% or greater aerobic reduction is associated with significant performance decrements ... the -20% requirement"
+      },
+      "needsReview": false
+    },
+    {
+      "id": "volume-drivers",
+      "label": "What protects bone and strength",
+      "text": "Resistance and treadmill volume are the main drivers for bone and strength.",
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "quote": "Resistance and treadmill volume loads were the key countermeasure factors associated with improved strength, bone, body composition, and cardiorespiratory endpoints."
+      },
+      "needsReview": false
+    },
+    {
+      "id": "never-zero-volume",
+      "label": "Never drop volume to zero",
+      "text": "Never drop resistance or treadmill volume to zero. On recovery days reduce the intensity, not the volume to nothing.",
+      "source": {
+        "name": "NASA OCHMO-TB-031 Exercise Overview",
+        "url": "https://www.nasa.gov/ochmo-tb-031-exercise-overview-2/",
+        "note": "Follows from the rule above (volume is the main driver). The document does not state this policy in these words."
+      },
+      "needsReview": true
+    },
+    {
+      "id": "recovery-day-intensity",
+      "label": "Recovery-day intensity",
+      "text": "On recovery days keep intensity under 70% of maximum heart rate.",
+      "values": { "maxHrPctUnder": 70 },
+      "source": null,
+      "needsReview": true
+    },
+    {
+      "id": "trend-rule",
+      "label": "Early trend rule",
+      "text": "A fall of 10% over 3 days is an early warning. Not applied by the app yet.",
+      "values": { "dropPct": 10, "days": 3 },
+      "source": null,
+      "needsReview": true
+    },
+    {
+      "id": "safety-gate-wording",
+      "label": "Safety-gate wording",
+      "text": "Talk to the flight surgeon before changing your plan.",
+      "source": null,
+      "needsReview": true
+    },
+    {
+      "id": "proxy-baseline",
+      "label": "Baseline for the proxy",
+      "text": "Baseline = the weekly average of the first 14 days of logged training. The proxy is minutes and logged lifts, not a VO2 or strength test.",
+      "values": { "baselineDays": 14 },
+      "source": null,
+      "needsReview": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+node_modules
+dist
+dev-dist
+.env
+.env.local
+public/mediapipe/wasm
+public/models
+# open datasets downloaded by npm run fetch-data (licenses in README)
+/data/
+public/replay/
+
+# local-only files
+.DS_Store
+.vitest/
+/*.pdf

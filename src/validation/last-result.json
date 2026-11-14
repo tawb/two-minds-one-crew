@@ -1,0 +1,61 @@
+{
+  "status": "ok",
+  "ranAt": "2026-11-14T10:44:48.509Z",
+  "dataset": "Pulse Transit Time PPG (PhysioNet), header values",
+  "license": "ODbL 1.0",
+  "subjects": 22,
+  "testPoints": 88,
+  "method": "Calibrate on the first seated recording of each person, then estimate blood pressure at the start and end of the walking and running recordings from heart rate.",
+  "estimator": {
+    "label": "Placeholder: calibration reading + heart-rate slope",
+    "slopeSysPerBpm": 0.3,
+    "slopeDiaPerBpm": 0.1,
+    "placeholder": true
+  },
+  "variants": [
+    {
+      "id": "calibration-only",
+      "label": "Calibration reading only (no heart-rate term)",
+      "sys": {
+        "n": 88,
+        "meanError": 1.0454545454545454,
+        "sd": 6.636556874414278,
+        "mae": 4.840909090909091,
+        "pctWithin10": 86.36363636363636
+      },
+      "dia": {
+        "n": 88,
+        "meanError": 0.045454545454545456,
+        "sd": 4.591118589838007,
+        "mae": 3.1363636363636362,
+        "pctWithin10": 96.5909090909091
+      }
+    },
+    {
+      "id": "placeholder",
+      "label": "Placeholder: calibration reading + heart-rate slope",
+      "sys": {
+        "n": 88,
+        "meanError": 1.5602272727272732,
+        "sd": 6.262000704352934,
+        "mae": 4.693181818181818,
+        "pctWithin10": 89.77272727272727
+      },
+      "dia": {
+        "n": 88,
+        "meanError": 0.21704545454545465,
+        "sd": 4.56288680529225,
+        "mae": 3.1681818181818198,
+        "pctWithin10": 96.5909090909091
+      }
+    }
+  ],
+  "notes": [
+    "The estimator is a PLACEHOLDER (calibration reading plus a heart-rate slope with made-up coefficients). The app does not contain a real cuffless blood-pressure estimator; displayed blood pressure always comes from the cuff.",
+    "Data: healthy volunteers sitting, walking and running. Reference blood pressure is a cuff value at the start and at the end of each recording, not a continuous trace. Heart rate is the wrist PPG value from the dataset header.",
+    "Calibration uses the first (seated) recording of the same person; walking and running are the test points. Calibration and test happen within one session, so this says nothing about how a calibration ages over days or weeks.",
+    "PulseDB and other ICU-derived datasets, if added later, are for algorithm testing only. They are not a source of astronaut thresholds.",
+    "Blood pressure in this dataset changes little between sitting and walking or running, so a calibration-only estimate that ignores heart rate already scores well. This test cannot show that the heart-rate term, or any estimator, tracks real changes.",
+    "This is an algorithm check on public data. It is not a clinical validation and it does not show the device is accurate."
+  ]
+}

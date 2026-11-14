@@ -1,0 +1,47 @@
+/* Response check. Uses the site's colour tokens (see src/styles.css) so it matches the rest of the app. */
+.rc { max-width: 760px; margin: 0 auto; }
+.rc-card { background: var(--glass); border: 1px solid var(--line); border-radius: var(--r); padding: 1.4rem 1.5rem; margin: 1.1rem 0; }
+.rc-card h2 { margin-top: 0; }
+.rc-list { padding-left: 1.1rem; }
+.rc-list li { margin: .5rem 0; }
+.rc-stage.rc-hidden { display: none; }
+.rc-stage { display: grid; gap: 1rem; margin: 1rem 0; }
+
+/* the prompt sits ABOVE the video (never on top of it), so nothing overlaps on small screens */
+.rc-prompt { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .35rem; min-height: 9.5rem; justify-content: center;
+  padding: 1rem 1.2rem; border-radius: var(--r); border: 1px solid var(--line); background: var(--glass); transition: background .15s ease, border-color .15s ease; }
+.rc-prompt.rc-cue { background: rgba(251, 241, 230, .96); border-color: var(--text); }
+.rc-prompt.rc-cue .rc-instruction, .rc-prompt.rc-cue .rc-label, .rc-prompt.rc-cue .rc-hint { color: var(--on-accent); }
+.rc-label { color: var(--muted); font-size: .85rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.rc-instruction { font-size: clamp(1.9rem, 6vw, 3rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; overflow-wrap: anywhere; }
+.rc-count { font-size: clamp(3.4rem, 14vw, 6rem); font-weight: 800; line-height: 1; }
+.rc-hint { color: var(--muted); font-size: 1rem; }
+.rc-warn { color: var(--red); font-weight: 600; }
+.rc-issues { list-style: none; padding: 0; margin: .4rem 0 0; display: grid; gap: .4rem; }
+.rc-issues li { color: var(--amber); background: rgba(242, 193, 78, .14); border-radius: 14px; padding: .45rem .8rem; }
+
+.rc-video { position: relative; width: 100%; max-width: 640px; margin: 0 auto; aspect-ratio: 4 / 3; border-radius: var(--r); overflow: hidden; background: #000; border: 1px solid var(--line); }
+.rc-video video, .rc-video canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); /* mirror view, like a mirror */ }
+.rc-actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; justify-content: center; }
+.rc-check { display: inline-flex; gap: .45rem; align-items: center; color: var(--muted); font-size: .9rem; }
+.rc-check input { min-height: auto; accent-color: var(--accent); }
+.rc-fine { color: var(--muted); font-size: .82rem; text-align: center; margin: .2rem 0; }
+.rc-disclaimer { color: var(--muted); font-size: .9rem; border-left: 3px solid var(--line); padding-left: .7rem; }
+
+.rc-status { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.rc-text { font-size: 1.15rem; font-weight: 600; margin: .8rem 0 .4rem; }
+.rc-reasons { padding-left: 1.2rem; }
+.rc-reasons li { margin: .3rem 0; }
+.rc-nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .7rem; margin: 1rem 0; }
+.rc-num { background: rgba(0, 0, 0, .16); border-radius: 18px; padding: .7rem .9rem; display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+.rc-num-v { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.rc-num-v small { font-size: .75rem; font-weight: 500; color: var(--muted); }
+.rc-num-l { color: var(--muted); font-size: .8rem; }
+@media (max-width: 520px) { .rc-actions button { flex: 1 1 40%; } .rc-prompt { min-height: 8.5rem; } }
+
+.rc-details { margin: 1rem 0; }
+.rc-details summary { cursor: pointer; color: var(--link); font-weight: 600; }
+.rc-table-wrap { overflow-x: auto; display: grid; gap: .8rem; margin-top: .6rem; }
+.rc-table { border-collapse: collapse; width: 100%; font-size: .85rem; }
+.rc-table th, .rc-table td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.rc-table thead th { color: var(--muted); font-weight: 500; font-size: .75rem; }
