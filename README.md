@@ -8,6 +8,12 @@ An **AI-assisted student prototype** running on **synthetic data** with **propos
 > It does not tell you how you feel. It tells you what you cannot feel.
 > The app shows prompts for review (Logged · Verify · Review suggested · Help requested). It never names a condition or a cause. People diagnose.
 
+## Live site and hosting
+
+Live: https://tawb.github.io/two-minds-one-crew/ (GitHub Pages). Every push to `main` runs `.github/workflows/pages.yml`: install, `npm run setup:cv` (downloads the two on-device camera models), `npm test`, build, publish. The site is served from a sub-path, so the build sets `VITE_BASE=/two-minds-one-crew/` (the router, the manifest and all asset links follow it; local `npm run dev` stays at `/`). GitHub Pages has no single-page-app fallback, so the workflow copies `index.html` to `404.html`: a refreshed or shared deep link loads the app (the page reports status 404, the browser still shows the app). The public datasets from `npm run fetch-data` are not in the repository or the site (licenses, CGMacros is non-commercial), so the hosted replay uses the synthetic day and the reference ranges use the marked placeholders.
+
+To work on it: `git clone https://github.com/tawb/two-minds-one-crew.git`, `npm install`, `cp .env.example .env`, `npm run dev`. License: Apache 2.0.
+
 ## Run
 
 Needs Node 20+ (Vite warns below 20.19; 22.12+ is recommended).
